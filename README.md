@@ -21,6 +21,44 @@ The system is built using a **layered architecture** that includes controllers, 
   - Search for computers by ID or within a store's inventory.
 
 ---
+## Diagrama UML de clases
+   
+  <pre>
++----------------+            +----------------+           +----------------+
+|     Store      |1         * |    Computer    |*         1 |   StoreDTO     |
+|----------------|------------|----------------|-----------|----------------|
+| - id: Long     |            | - id: Long     |           | - id: Long     |
+| - name: String |            | - name: String |           | - name: String |
+| - owner: String|            | - specs: String|           | - owner: String|
+| - taxId: String|            | - price: Double|           | - taxId: String|
++----------------+            +----------------+           +----------------+
+        |                           ^                             ^
+        |1                          |*                            |1
+        |                           |                             |
+        v                           v                             |
++------------------+         +-------------------+          +-------------------+
+| StoreService     |         | ComputerService   |          | ComputerDTO       |
+|------------------|         |-------------------|          |-------------------|
+| + create()       |         | + create()        |          | - id: Long        |
+| + update()       |         | + update()        |          | - name: String    |
+| + delete()       |         | + delete()        |          | - specs: String   |
+| + findById()     |         | + findById()      |          | - price: Double   |
+| + findAll()      |         | + findAll()       |          +-------------------+
++------------------+         +-------------------+
+        ^                            ^
+        |                            |
+        v                            v
++-----------------+          +-------------------+
+| StoreController |          | ComputerController |
+|-----------------|          |-------------------|
+| + create()      |          | + create()         |
+| + update()      |          | + update()         |
+| + delete()      |          | + delete()         |
+| + findById()    |          | + findById()       |
+| + findAll()     |          | + findAll()        |
++-----------------+          +-------------------+
+</pre>
+
 
 ## Project Structure
 
