@@ -180,6 +180,9 @@ The application uses an **H2 in-memory database**. You can access the H2 console
 
 ---
 
+- Ejemplo de captura de cobertura:
+<img src="/Foto/Imagen pegada.png" alt="Captura de cobertura de pruebas" />
+
 ## Future Enhancements
 
 - Implement Swagger for API documentation.
