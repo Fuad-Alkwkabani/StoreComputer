@@ -1,5 +1,7 @@
 package com.techworld.TiendaComputadores.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -17,6 +19,7 @@ public class Computer {
     private double price;
 
     @ManyToOne
-    @JoinColumn(name = "store_id", nullable = false)
+    @JoinColumn(name = "store_id")
+    @JsonBackReference
     private Store store;
 }
